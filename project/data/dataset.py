@@ -3,7 +3,6 @@ from PIL import Image
 from torchvision.transforms.functional import to_tensor
 
 
-
 class ObjDetectionDataset(torch.utils.data.Dataset):
     def __init__(self, df):
         self.df = df.reset_index(drop=True)
@@ -16,12 +15,12 @@ class ObjDetectionDataset(torch.utils.data.Dataset):
         # your code here
         row = self.df.iloc[idx]
 
-        img = Image.open(row["images files"]).convert("RGB")
+        img = Image.open(row["image_path"]).convert("RGB")
         w, h = img.size
         image = to_tensor(img)
 
         boxes, labels = [], []
-        with open(row["labels files"]) as f:
+        with open(row["label_path"]) as f:
             for line in f:
                 cls, xc, yc, bw, bh = map(float, line.split())
                 x1 = (xc - bw/2) * w
