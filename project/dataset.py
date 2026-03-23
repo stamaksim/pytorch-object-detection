@@ -1,4 +1,4 @@
-import torch
+import torch 
 from PIL import Image
 from torchvision.transforms.functional import to_tensor
 
@@ -13,6 +13,8 @@ class ObjDetectionDataset(torch.utils.data.Dataset):
     def __getitem__(self, idx):
         # TODO 1: Get the row number idx from dataframe
         # your code here
+        
+        row = self.df.iloc[idx]
 
         img = Image.open(row["image_path"]).convert("RGB")
         w, h = img.size
@@ -36,3 +38,5 @@ class ObjDetectionDataset(torch.utils.data.Dataset):
         }
         # TODO 2: Return what you need from this class
         # your code here
+
+        return image, target
