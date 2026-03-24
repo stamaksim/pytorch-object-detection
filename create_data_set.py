@@ -36,9 +36,9 @@ import os
 import csv
 import random
 
-images_dir = "data/images"
-labels_dir = "data/labels"
-csv_dir = "data/CSVs"
+images_dir = "unified_dataset/images"
+labels_dir = "unified_dataset/labels"
+csv_dir = "unified_dataset/CSVs"
 
 train_csv = os.path.join(csv_dir, "train_df.csv")
 val_csv = os.path.join(csv_dir, "val_df.csv")
