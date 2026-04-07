@@ -8,6 +8,8 @@ def get_args():
                         choices=['fasterrcnn_resnet50_fpn', 'fasterrcnn_mobilenet_v3'])
     
     parser.add_argument("--num_classes", type=int, default=1)
+    parser.add_argument("--image_size", type=int, default=512)
+
 
     parser.add_argument("--csv_dir", type=str, default="data/CSVs")
     parser.add_argument("--outdir", type=str, default="output")
