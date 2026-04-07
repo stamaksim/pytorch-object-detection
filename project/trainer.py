@@ -24,6 +24,8 @@ def train_model(model, train_loader, val_loader, device):
             ]
             
             optimizer.zero_grad()
+
+            
             loss_dict = model(images, targets)
             loss = sum(loss_value for loss_value in loss_dict.values())
             loss.backward()
@@ -37,8 +39,8 @@ def train_model(model, train_loader, val_loader, device):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            os.makedirs(args.out_dir, exist_ok=True)
-            torch.save(model.state_dict(), os.path.join(args.out_dir, 'best_model.pth'))
+            os.makedirs(args.outdir, exist_ok=True)
+            torch.save(model.state_dict(), os.path.join(args.outdir, 'best_model.pth'))
             
         print(f"Epoch {epoch + 1}/{args.epochs} | "
               f"Train Loss: {train_epoch_loss:.4f} | "
