@@ -121,3 +121,20 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# model
+output/
+
+# results
+results/
+
+# python
+__pycache__/
+*.pyc
+
+# env
+.venv/
+
+# images (опціонально)
+test_images/*
+!test_images/example.jpg

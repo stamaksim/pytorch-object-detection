@@ -1,11 +1,18 @@
 import torch
 from PIL import Image
 from torchvision.transforms.functional import to_tensor
+import augmentation as aug
 
 
 class ObjDetectionDataset(torch.utils.data.Dataset):
-    def __init__(self, df):
+    def __init__(self, df, transform=None):
         self.df = df.reset_index(drop=True)
+
+        if transform is None:
+            self.transform = aug.NoTransform()
+
+        else:
+            self.transform = transform
 
     def __len__(self):
         return len(self.df)
